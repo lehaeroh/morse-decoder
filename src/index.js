@@ -38,8 +38,16 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-    // write your solution here
+    // console.log(expr.split('**********').map(a => a.match( /\d{1,10}/g).join(' ').split(' ')
+    // .map(b => b.replace(/^0+/, '').split(' ').map(c => c.match( /\d{1,2}/g).join(' ').split(' ')
+    // .map(d => d ==='11' ? '-' : '.').join('')).map(e =>MORSE_TABLE[e])).join('')).join(' '));
+
+    return expr.split('**********').map(a => a.match( /\d{1,10}/g).join(' ').split(' ')
+    .map(b => b.replace(/^0+/, '').split(' ').map(c => c.match( /\d{1,2}/g).join(' ').split(' ')
+    .map(d => d ==='11' ? '-' : '.').join('')).map(e =>MORSE_TABLE[e])).join('')).join(' ');
 }
+
+// console.log(decode("00101010100000000010001011101000101110100000111111**********00001011110000111111000010111000101110100000111010"));
 
 module.exports = {
     decode
